@@ -11,7 +11,8 @@ const profile = require('./routes/api/profile')
 mongo
     .connect(db, {
         useUnifiedTopology:true,
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useFindAndModify: false 
     })
     .then(() => console.log('mongodb connected!'))
     .catch(err => console.log(err));
@@ -34,4 +35,4 @@ app.use('/api/profile', profile);
 
 //app listen
 const port = process.env.PORT || 5000;
-app.listen(port , () => console.log(`app running on ${port} port`));
+app.listen(port , () => console.log(`Server running on ${port} port`));
